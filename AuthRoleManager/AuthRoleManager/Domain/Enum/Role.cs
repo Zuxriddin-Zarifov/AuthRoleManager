@@ -1,8 +1,7 @@
-﻿namespace AuthRoleManager.Domain.Enum
+﻿namespace AuthRoleManager.Domain.Enum;
+
+public enum Role
 {
-    public enum Role
-    {
-        Admin,
-        User
-    }
+    Admin,
+    User
 }

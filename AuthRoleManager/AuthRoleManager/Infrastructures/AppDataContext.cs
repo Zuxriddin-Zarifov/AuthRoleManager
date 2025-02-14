@@ -1,14 +1,13 @@
 ﻿using AuthRoleManager.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace AuthRoleManager.Infrastructures
+namespace AuthRoleManager.Infrastructures;
+
+public class AppDataContext : DbContext
 {
-    public class AppDataContext : DbContext
+    protected DbSet<User> Users { get; set; }
+    public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
     {
-        protected DbSet<User> Users { get; set; }
-        public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
-        {
-            
-        }
+        
     }
 }

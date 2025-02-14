@@ -1,7 +1,6 @@
-﻿namespace AuthRoleManager.Domain.Entity
+﻿namespace AuthRoleManager.Domain.Entity;
+
+public class ModelBase
 {
-    public class ModelBase
-    {
-        public long Id { get; set; }
-    }
+    public long Id { get; set; }
 }
