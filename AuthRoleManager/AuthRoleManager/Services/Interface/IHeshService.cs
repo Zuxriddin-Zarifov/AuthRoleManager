@@ -2,5 +2,5 @@
 
 public interface IHeshService
 {
-    public Task<string> HashFunctionAsync(string password);
+    public Task<string> HeshClientPasswordAsync(string password);
 }

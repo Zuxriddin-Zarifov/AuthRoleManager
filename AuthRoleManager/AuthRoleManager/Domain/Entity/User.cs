@@ -1,5 +1,6 @@
 ﻿using AuthRoleManager.Domain.Enum;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AuthRoleManager.Domain.Entity;

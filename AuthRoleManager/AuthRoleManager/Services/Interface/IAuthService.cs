@@ -5,6 +5,7 @@ namespace AuthRoleManager.Services.Interface;
 
 public interface IAuthService
 {
-    public Task<User> RegistrationAsync(UserDto dto);
-    public Task<User> LoginAsync(UserDto dto);
+    public Task<string> RegistrationAsync(UserDto dto);
+    public Task<User> LoginAsync(LoginDto dto);
+    public Task<bool> CheckEmail(string email, string opt);
 }

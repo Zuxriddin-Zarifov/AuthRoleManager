@@ -1,6 +1,8 @@
-﻿namespace AuthRoleManager.Services.Interface;
+﻿using AuthRoleManager.Domain.Enum;
+
+namespace AuthRoleManager.Services.Interface;
 
 public interface ITokenService
 {
-    public ValueTask<string> GetTokenAsync(string email, string password); 
+    public Task<string> GetTokenAsync(string email, string password, Role role); 
 }

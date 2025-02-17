@@ -2,7 +2,6 @@
 
 public interface IEmailService
 {
-    public Task SendMassageAsync(string email);
-    public Task<bool> CheckEmailAsync(string email, string otp);
+    public Task SendMassageAsync(string email, string subject, string body);
 
 }
