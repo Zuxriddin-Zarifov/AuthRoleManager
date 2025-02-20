@@ -14,8 +14,7 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : ModelBase
     public async Task<T> CreatAsync(T data)
     {
         var result = DbGetSet().Add(data);
-        await _dataContext.SaveChangesAsync();
-
+        _dataContext.SaveChanges();
         return result.Entity;
     }
 
@@ -26,14 +25,16 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : ModelBase
 
     public async Task<T> DeleteAsync(T data)
     {
-        return await DeleteAsync(data.Id);
+        var result =  await DeleteAsync(data.Id);
+        _dataContext.SaveChanges();
+        return result;
     }
 
     public async Task<T> DeleteAsync(long id)
     {
         var data = await GetByIdAsync(id);
         var entityResult = DbGetSet().Remove(data);
-        await _dataContext.SaveChangesAsync();
+        _dataContext.SaveChanges();
         return entityResult.Entity;
     }
 
@@ -45,14 +46,13 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : ModelBase
     public async Task<T> GetByIdAsync(long id)
     {
         var data = await DbGetSet().FirstOrDefaultAsync(x => x.Id == id);
-
         return data;
     }
 
     public async Task<T> UpdateAsync(T data)
     {
         var entityResult = DbGetSet().Update(data);
-        await _dataContext.SaveChangesAsync();
+        _dataContext.SaveChanges();
         return entityResult.Entity;
     }
 }

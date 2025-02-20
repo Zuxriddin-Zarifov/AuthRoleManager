@@ -1,6 +1,9 @@
-﻿namespace AuthRoleManager.Domain.Entity;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AuthRoleManager.Domain.Entity;
 
 public class ModelBase
 {
-    public long Id { get; set; }
+    [Column("id"),Key]public long Id { get; set; }
 }

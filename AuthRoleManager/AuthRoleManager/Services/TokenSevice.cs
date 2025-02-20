@@ -15,7 +15,7 @@ public class TokenSevice : ITokenService
         _configuration = configuration;
     }
 
-    public async Task<string> GetTokenAsync(string email, string password, Role role)
+    public async Task<string> GetTokenAsync(string email, string firtName, Role role)
     {
         string key = _configuration.GetSection("Authentication")["SecurityKey"];
         string issuer = _configuration.GetSection("Authentication")["Issuer"];
@@ -28,7 +28,7 @@ public class TokenSevice : ITokenService
         var claims = new List<Claim>()
         {
             new Claim(ClaimTypes.Email,email),
-            new Claim("password",password),
+            new Claim(ClaimTypes.Name,firtName),
             new Claim(ClaimTypes.Role,role.ToString())
         };
 

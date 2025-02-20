@@ -5,9 +5,9 @@ namespace AuthRoleManager.Services;
 public class OTPService : IOTPService
 {
     private Random _random;
-    public OTPService(Random random)
+    public OTPService()
     {
-        _random = random;
+        _random = new Random();
     }
     public async Task<string> GenerateOTPAsync()
     {

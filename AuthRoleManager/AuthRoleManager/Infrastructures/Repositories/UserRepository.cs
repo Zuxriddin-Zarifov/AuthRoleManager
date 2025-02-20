@@ -8,5 +8,13 @@ namespace AuthRoleManager.Infrastructures.Repositories
         public UserRepository(AppDataContext appDataContext) : base(appDataContext)
         {
         }
+
+        public async Task<User> GetByEmailPassword(string email, string password)
+        {
+            var result = await GetAllAsync();
+
+            return result.FirstOrDefault(user => user.Email == email && user.Password == password);
+        }
+
     }
 }

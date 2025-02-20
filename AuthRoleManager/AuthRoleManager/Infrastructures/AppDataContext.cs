@@ -1,5 +1,6 @@
 ﻿using AuthRoleManager.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace AuthRoleManager.Infrastructures;
 
