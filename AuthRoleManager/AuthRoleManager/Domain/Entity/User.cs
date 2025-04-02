@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AuthRoleManager.Domain.Entity;
 
 [Table("users",Schema ="auth_role_manager")]
-[Index(nameof(Email), IsUnique = true)]
 public class User : ModelBase
 {
    [Column("first_name")] public string FirstName { get; set; }
