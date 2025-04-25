@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthRoleManager.Migrations
 {
     /// <inheritdoc />
-    public partial class initialCreate : Migration
+    public partial class create : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,13 +34,6 @@ namespace AuthRoleManager.Migrations
                 {
                     table.PrimaryKey("PK_users", x => x.id);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_users_email",
-                schema: "auth_role_manager",
-                table: "users",
-                column: "email",
-                unique: true);
         }
 
         /// <inheritdoc />

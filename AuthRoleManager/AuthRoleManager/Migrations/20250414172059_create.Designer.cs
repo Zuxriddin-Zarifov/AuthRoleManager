@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthRoleManager.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20250220095943_initialCreate")]
-    partial class initialCreate
+    [Migration("20250414172059_create")]
+    partial class create
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,9 +68,6 @@ namespace AuthRoleManager.Migrations
                         .HasColumnName("role");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("users", "auth_role_manager");
                 });

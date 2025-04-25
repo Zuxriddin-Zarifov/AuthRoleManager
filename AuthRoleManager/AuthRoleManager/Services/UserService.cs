@@ -26,11 +26,13 @@ public class UserService : IUserService
         User user = new User()
         {
             FirstName = userDto.FirstName,
+            Role = Domain.Enum.Role.Admin,
             LastName = userDto.LastName,
             Email = userDto.Email,
             Password = await _heshService.HeshClientPasswordAsync(userDto.Password),
             OTP = otp,
             OTPLiveDatetime = DateTime.UtcNow.AddMinutes(3)  // 3 minutli otp live 
+            
         };
         var result = await _userRepository.CreatAsync(user);
 
@@ -70,7 +72,7 @@ public class UserService : IUserService
         user.Email = userDto.Email;
         user.FirstName = userDto.FirstName;
         user.LastName = userDto.LastName;
-        user.Password = userDto.Password;
+        user.Password = await _heshService.HeshClientPasswordAsync(userDto.Password);
         user.Role = userDto.Role;
 
         var result = await _userRepository.UpdateAsync(user);

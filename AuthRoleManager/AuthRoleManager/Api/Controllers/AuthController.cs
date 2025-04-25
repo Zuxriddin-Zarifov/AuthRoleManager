@@ -27,7 +27,8 @@ public class AuthController
         return await _authService.LoginAsync(loginDto);
     }
 
-    [HttpGet("check_email"),AllowAnonymous]
+    [HttpGet("check_email")]
+    [Authorize(Roles = "Admin")]
     public async Task<bool> CheckEmailAsync(string email,string password, string otp)
     {
         return await _authService.CheckEmailAsync(otp,email,password);

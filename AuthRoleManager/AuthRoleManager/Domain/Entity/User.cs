@@ -15,5 +15,5 @@ public class User : ModelBase
    [Column("password")] public string Password { get; set; }
    [Column("otp")] public string OTP { get; set; }
    [Column("otp_live_detetime")] public DateTime OTPLiveDatetime { get; set; }
-   [Column("role")] public Role Role { get; set; } = Role.User;
+   [Column("role")] public Role Role { get; set; } = Role.Admin;
 }

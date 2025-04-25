@@ -16,32 +16,32 @@ public class UserController
         _userService = userService;
     }
     [HttpPost("create")]
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<User> CreateAsync(UserCreateDto createDto)
          => await _userService.CreateAsync(createDto);
     
     [HttpDelete("delete")]
-   // [Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<User> DeleteAsync(long id)
         => await _userService.DeleteAsync(id);
     
     [HttpPut("update")]
-   // [Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<User> UpdateAsync(UserUpdateDto updateDto)    
         => await _userService.UpdateAsync(updateDto);
 
     [HttpGet("get_all")]
-   // [Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<IEnumerable<User>> GetUsersAsync()
         => await _userService.GetByAllAsync();
 
     [HttpGet("get_by_id")]
-   // [Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<User> GetByIbAsync(long id)   
         => await _userService.GetByIdAsync(id);
     
     [HttpGet("get_by_email_password")]
-   // [Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<User> GetByEmailPasswordAsync(string email,string password) 
         => await _userService.GetByEmailPasswordAsync(email, password);
     

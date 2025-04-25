@@ -66,9 +66,6 @@ namespace AuthRoleManager.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
                     b.ToTable("users", "auth_role_manager");
                 });
 #pragma warning restore 612, 618

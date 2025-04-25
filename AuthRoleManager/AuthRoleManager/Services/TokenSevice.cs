@@ -15,12 +15,13 @@ public class TokenSevice : ITokenService
         _configuration = configuration;
     }
 
-    public async Task<string> GetTokenAsync(string email, string firtName, Role role)
+    public async Task<string> GetTokenAsync(string email, string firtName,Role role)
     {
         string key = _configuration.GetSection("Authentication")["SecurityKey"];
         string issuer = _configuration.GetSection("Authentication")["Issuer"];
         string audience = _configuration.GetSection("Authentication")["Audience"];
-        int expiresInMinutes = _configuration.GetSection("Authentication").GetValue<int>("ExpireAtInMinutes");
+        int expiresInMinutes = _configuration.GetSection("Authentication").
+            GetValue<int>("ExpireAtInMinutes");
 
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
